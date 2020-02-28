@@ -10,8 +10,22 @@
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link href="../resources/css/my_style.css" rel="stylesheet">
+	<script>
+		window.onload = function(){
+				document.getElementById('student_status').style.background = "#fff";
+
+		};
+
+		function viewStudentStats(id, toggle){
+			if(toggle ==0){
+				document.getElementById(id).style.visibility = 'hidden';
+			}else if(toogle ==1){
+				document.getElementById(id).style.visibility = 'visibile';
+			}
+		} 
+	</script>
 </head>
-<body>
+<body onload="init()">
 	
 	<img src="../resources/img/beproudcapaabanner.jpg" class="img-fluid" alt="Registration Page Banner for CU Football">
 	<br>
@@ -34,7 +48,7 @@
 				float:right;
 			}
 		</style>
-		<form id="regform" action="home.html">
+		<form id="regform" action="">
 			<table style="width:100%;">
 				<tr>
 					<th colspan="1">Full Name: </th>
@@ -76,53 +90,53 @@
 							</label>
 						</div>
 					</td>
-					<td>Undergrad:
+				</tr>
+
+				<tr class="spacer"></tr>
+				<div id ="student_status">
+				<tr>
+					<td>CU Student:
 						<div class="btn-group btn-group-toggle" data-toggle="buttons">
 							<label class="btn btn-secondary"> 
-								<input type="radio" name="is_undergrad_yes" />yes
+								<input  type="radio" name="is_student_yes" />yes
 							</label>
 							<label class="btn btn-secondary">
-								<input type="radio" name="is_undergrad_no" />no
+								<input type="radio" name="is_student_no" />no
 							</label>
 						</div>
 					</td>
-					<td>Graduate:
-						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<td>Status:
+						<div class="btn-group btn-group-toggle">
 							<label class="btn btn-secondary"> 
-								<input type="radio" name="is_graduate_yes" />yes
+							<input  onclick="viewStudentStats('undergrad_select',1);" type="radio" name="is_undergrad" >Undergrad</input>
 							</label>
 							<label class="btn btn-secondary">
-								<input type="radio" name="is_graduate_no" />no
+								<input type="radio" name="is_grad" />Graduate
 							</label>
 						</div>
 					</td>
 				</tr>
 				<tr class="spacer"></tr>
 				<tr >
-					<style>select{width:100%;}</style>
 					<td colspan="3">
-						<select>
+						<select id="undergrad_select" style="width:100%;">
 							<option value="1">Freshman</option>
 							<option value="2">Sophmore</option>
 							<option value="3">Junior</option>
 							<option value="4">Senior</option>
 						</select>
-					</td>
-				</tr>
-				<tr class="spacer"></tr>
-				<tr >
-					<td colspan="3">
-						<select>
+						<select id="grad_select" style="width:100%;">
 							<option value="1">MA</option>
 							<option value="2">MBA</option>
 							<option value="3">PhD</option>
 						</select>
 					</td>
 				</tr>
+			</div>
 				<tr class="spacer"></tr>
 				<tr>
 					<td colspan="3">
-						<button type="submit"class="btn btn-primary btn-block" >Submit!</button>
+						<button  type="submit"class="btn btn-primary btn-block" >Submit!</button>
 					</td>
 				</tr>
 			</table>
